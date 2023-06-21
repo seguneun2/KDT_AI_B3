@@ -6,10 +6,9 @@
 [Github RestAPI AuthToken 사용법](https://docs.github.com/ko/rest/guides/getting-started-with-the-rest-api?apiVersion=2022-11-28)  
 
 #### 프로그램 실행법  
-
- - 1. Github oauth을 발급받고 restapi header 부분에 발급받은 api key 추가.  
- - 2. 찾고싶은 Github Repository 찾기  
- - 3. python get_info_from_api.py 실행  
+ 1. Github oauth을 발급받고 restapi header 부분에 발급받은 api key 추가.
+ 2. 찾고싶은 Github Repository 찾기    
+ 3. python get_info_from_api.py 실행    
 
 #### 출력결과물  
 
