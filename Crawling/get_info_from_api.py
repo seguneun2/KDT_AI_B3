@@ -11,7 +11,7 @@ root = Node("root")
 
 def api_call(api_link):
     headers = {
-        "Authorization":"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",
+        "Authorization":"",
     }
     response = requests.get(api_link, headers=headers)
     
