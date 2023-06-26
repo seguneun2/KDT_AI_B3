@@ -7,13 +7,12 @@ from anytree import Node, RenderTree
 
 df = pd.DataFrame(columns=["file_name", "content"])
 root = Node("root")
-
+api_call_count = 0
 
 def api_call(api_link):
-    headers = {
-        "Authorization":"",
-    }
-    response = requests.get(api_link, headers=headers)
+    global api_call_count
+    api_call_count += 1
+    response = requests.get(api_link, auth=('Your Name','API_TOKEN'))
     
     # time.sleep(0.3)
     if response.status_code == 200:
@@ -32,7 +31,7 @@ def get_file_info(api_link, file_name, parent_node):
     return
 
 
-def get_dir_info(api_link, dir_name="GitHub_Reposiory", parent_node=root):
+def get_dir_info(api_link, file_name="Git_Repository" ,parent_node=root):
     file_info_list = api_call(api_link)  
     for file_info in file_info_list:
         
@@ -46,7 +45,7 @@ def get_dir_info(api_link, dir_name="GitHub_Reposiory", parent_node=root):
             get_dir_info(file_api_link, file_name, dir_node)
 
 
-def main(web_link):
+def get_git_call(web_link):
     start_time = time.time() 
     user_name,repo_name = web_link.split('/')[-2:] 
     get_dir_info(f"https://api.github.com/repos/{user_name}/{repo_name}/contents/")
@@ -55,17 +54,17 @@ def main(web_link):
     for pre, _, node in RenderTree(root):
         tree_output += f"{pre}{node.name}\n"
 
-    with open("tree_output.txt", "w",encoding='utf-8') as f:
-        f.write(tree_output)
-    df.to_excel("data_output.xlsx", index=False)
+    # with open("tree_output.txt", "w",encoding='utf-8') as f:
+    #     f.write(tree_output)
+    # df.to_excel("data_output.xlsx", index=False)
 
     end_time = time.time()  # 실행 종료 시간 기록
     execution_time = end_time - start_time  # 실행 시간 계산
     print(f"프로그램 실행 시간: {execution_time:.2f}초")
+    print(f"API call 횟수 : {api_call_count}")
+    return df, tree_output
 
 
-# 여기다가 링크 입력하고 실행하면 됨
-web_link = "https://github.com/SamLynnEvans/Transformer"
-main(web_link)
+# print(get_git_call("https://github.com/SamLynnEvans/Transformer"))
 
 
