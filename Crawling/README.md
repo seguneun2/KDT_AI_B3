@@ -5,6 +5,8 @@
 [AuthToken 발급방법](https://docs.github.com/ko/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)  
 [Github RestAPI AuthToken 사용법](https://docs.github.com/ko/rest/guides/getting-started-with-the-rest-api?apiVersion=2022-11-28)  
 
+https://github.com/settings/apps  
+
 #### 프로그램 실행법  
  1. Github oauth을 발급받고 restapi header 부분에 발급받은 api key 추가.
  2. 찾고싶은 Github Repository 찾기    
