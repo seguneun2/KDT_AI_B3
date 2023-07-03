@@ -1,0 +1,24 @@
+###
+# Transformer
+###
+질문을 입력해주세요 : Please show Encoder's crucial code block
+**Answer**: I don't have enough information to determine the crucial code block of the Encoder.
+
+질문을 입력해주세요 : Where is Transformer's decoder code block?
+**Answer**: The provided context does not contain the code block for the Transformer Decoder.
+
+질문을 입력해주세요 : What is role of Batch.py file?
+**Answer**: The role of the Batch.py file is not provided in the given context.
+
+질문을 입력해주세요 :
+**Answer**: I don't know the specific role of the Batch.py file based on the given context.
+
+질문을 입력해주세요 : exu
+**Answer**: The role of the Batch.py file is not clear from the given context. 
+It could be a file that contains code related to batching data for training or processing in a machine learning model. 
+However, without more information, it is not possible to determine the specific role of the Batch.py file.
+
+질문을 입력해주세요 :
+**Answer**: The specific role of the Batch.py file is not clear from the given context. 
+It is likely that the Batch.py file contains functions or classes related to batching data for training or inference in a machine learning model. 
+However, without further information about the contents of the file, it is difficult to provide a more specific answer.

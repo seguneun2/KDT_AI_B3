@@ -30,7 +30,7 @@ def main():
     texts = document_chunking(docs, size=1000, overlap=0)
     
     # 4. chunking 된 데이터 vector db 로 임베딩 하기 
-    db = upload_document(texts, os.getenv('DEEPLAKE_USERNAME'), 'langchain-code_jhkim')
+    db = upload_document(texts, os.getenv('DEEPLAKE_USERNAME'), 'langchain-code')
     retriever =  get_retriever(db, "cos", 100, True, 10)
     
     # 5. 원하는 질문 입력 하기 
@@ -44,5 +44,9 @@ def main():
         chat_history.append((question, result["answer"]))
         
         print(f"**Answer**: {result['answer']} \n")
+
 if __name__ == "__main__":
     main()
+
+# TEST GITHUB 
+# https://github.com/SamLynnEvans/Transformer

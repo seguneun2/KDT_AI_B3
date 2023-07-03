@@ -18,7 +18,7 @@ def api_call(api_link):
     
     response = requests.get(
         api_link, 
-        auth=( os.getenv("GITHUB_NAME") , os.getenv("GITHUB_TOKEN"))
+        auth=(os.getenv("GITHUB_NAME") , os.getenv("GITHUB_TOKEN"))
     )
     
     if response.status_code == 200:
@@ -59,6 +59,7 @@ def github_api_call(web_link, make_txt_file=False):
     start_time = time.time() 
     user_name,repo_name = web_link.split('/')[-2:] 
     get_dir_info(f"https://api.github.com/repos/{user_name}/{repo_name}/contents/")
+    print("Get DIR information.")
 
     end_time = time.time()  # 실행 종료 시간 기록
     execution_time = end_time - start_time  # 실행 시간 계산
@@ -70,3 +71,4 @@ def github_api_call(web_link, make_txt_file=False):
             print(TOTAL_INFO_DICT, file=f)
     
     return TOTAL_INFO_DICT
+# https://github.com/SamLynnEvans/Transformer
