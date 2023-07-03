@@ -3,8 +3,8 @@ import time
 import json
 import base64
 import requests
-import pandas as pd
 from dotenv import load_dotenv
+from langchain.document_loaders import PyPDFLoader
 
 API_CALL_COUNT = 0
 TOTAL_INFO_DICT = {}
@@ -55,7 +55,7 @@ def get_dir_info(api_link, file_name="Git_Repository"):
             get_dir_info(file_api_link, file_name)
 
 
-def github_api_call(web_link):
+def github_api_call(web_link, make_txt_file=False):
     start_time = time.time() 
     user_name,repo_name = web_link.split('/')[-2:] 
     get_dir_info(f"https://api.github.com/repos/{user_name}/{repo_name}/contents/")
@@ -64,11 +64,9 @@ def github_api_call(web_link):
     execution_time = end_time - start_time  # 실행 시간 계산
     print(f"프로그램 실행 시간: {execution_time:.2f}초")
     print(f"API call 횟수 : {API_CALL_COUNT}")
+    
+    if make_txt_file is True:
+        with open('myfile_2.txt', 'w', encoding='utf-8') as f:
+            print(TOTAL_INFO_DICT, file=f)
+    
     return TOTAL_INFO_DICT
-
-# a = github_api_call("https://github.com/SamLynnEvans/Transformer")
-# with open('myfile_2.txt', 'w', encoding='utf-8') as f:
-#     print(a, file=f)
-# a.to_excel("hello.xlsx")
-# print(get_git_call("https://github.com/aza1200/langchain_pdf_practice"))
-# print(get_git_call("https://github.com/papers-we-love/papers-we-love"))

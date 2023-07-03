@@ -161,3 +161,5 @@ cython_debug/
 
 # 여기서부터는 직접 추가해야함.
 *.xlsx
+my_venv
+!requirements.txt

@@ -9,7 +9,7 @@ def document_chunking(docs, size, overlap=0):
     return texts 
 
 # dictionary 를 도큐먼트 리스트 형식으로 바꾸기
-def document_processing(github_info_dict):
+def document_processing(github_info_dict, make_txt_file=False):
     docutment_list = []
     
     # langchain 의 Document 로 변환 
@@ -21,6 +21,10 @@ def document_processing(github_info_dict):
         
         docutment_list.append(tmp_doc)
 
+    if make_txt_file==True:
+        with open('myfile_docs.txt', 'w', encoding='utf-8') as f:
+            print(docutment_list, file=f)
+    
     return docutment_list
         
     
