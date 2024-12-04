@@ -1,7 +1,3 @@
-# KDT_AI_B3
-KDT_AI final project
-
-
 ### GitHub RestAPI 를 이용해서 GitHub Repositery 정보가져오는 프로그램입니다. 
 
 
